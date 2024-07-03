@@ -28,7 +28,7 @@
               <div v-if="advanced === '2'">
                 <el-form-item label="后端地址:">
                   <el-autocomplete style="width: 100%" v-model="form.customBackend" :fetch-suggestions="backendSearch"
-                    placeholder="动动小手，（建议）自行搭建后端服务。例：http://127.0.0.1:25500/sub?">
+                    placeholder="https://sub.nagaseyami.com">
                     <el-button slot="append" @click="gotoGayhub" icon="el-icon-link">前往项目仓库</el-button>
                   </el-autocomplete>
                 </el-form-item>
@@ -107,12 +107,12 @@
                     icon="el-icon-document-copy">复制</el-button>
                 </el-input>
               </el-form-item>
-              <el-form-item label="订阅短链:">
+              <!-- <el-form-item label="订阅短链:">
                 <el-input class="copy-content" disabled v-model="curtomShortSubUrl">
                   <el-button slot="append" v-clipboard:copy="curtomShortSubUrl" v-clipboard:success="onCopy"
                     ref="copy-btn" icon="el-icon-document-copy">复制</el-button>
                 </el-input>
-              </el-form-item>
+              </el-form-item> -->
 
               <el-form-item label-width="0px" style="margin-top: 40px; text-align: center">
                 <el-button style="width: 140px" type="danger" @click="makeUrl"
@@ -215,76 +215,61 @@ export default {
           Trojan: "trojan",
           Surge3: "surge&ver=3",
         },
-        backendOptions: [{ value: "http://127.0.0.1:25500/sub?" }],
+        backendOptions: [{ value: "https://sub.nagaseyami.com/sub?" }],
         remoteConfig: [
           {
-            label: "universal",
+            label: "自制",
             options: [
               {
-                label: "No-Urltest",
+                label: "MyServer",
                 value:
-                  "https://cdn.jsdelivr.net/gh/SleepyHeeead/subconverter-config@master/remote-config/universal/no-urltest.ini"
-              },
-              {
-                label: "Urltest",
-                value:
-                  "https://cdn.jsdelivr.net/gh/SleepyHeeead/subconverter-config@master/remote-config/universal/urltest.ini"
-              }
-            ]
-          },
-          {
-            label: "customized",
-            options: [
-              {
-                label: "Maying",
-                value:
-                  "https://cdn.jsdelivr.net/gh/SleepyHeeead/subconverter-config@master/remote-config/customized/maying.ini"
-              },
-              {
-                label: "Ytoo",
-                value:
-                  "https://cdn.jsdelivr.net/gh/SleepyHeeead/subconverter-config@master/remote-config/customized/ytoo.ini"
+                  "https://gist.githubusercontent.com/NagaseYami/809bb13efc0e9bde2e02d66e86665bf4/raw/MyServer.ini"
               },
               {
                 label: "FlowerCloud",
                 value:
-                  "https://cdn.jsdelivr.net/gh/SleepyHeeead/subconverter-config@master/remote-config/customized/flowercloud.ini"
+                  "https://gist.githubusercontent.com/NagaseYami/809bb13efc0e9bde2e02d66e86665bf4/raw/FlowerCloud.ini"
               },
               {
-                label: "Nexitally",
+                label: "ShigureT",
                 value:
-                  "https://cdn.jsdelivr.net/gh/SleepyHeeead/subconverter-config@master/remote-config/customized/nexitally.ini"
+                  "https://gist.githubusercontent.com/NagaseYami/809bb13efc0e9bde2e02d66e86665bf4/raw/ShigureT.ini",
               },
-              {
-                label: "SoCloud",
-                value:
-                  "https://cdn.jsdelivr.net/gh/SleepyHeeead/subconverter-config@master/remote-config/customized/socloud.ini"
-              },
-              {
-                label: "ARK",
-                value:
-                  "https://cdn.jsdelivr.net/gh/SleepyHeeead/subconverter-config@master/remote-config/customized/ark.ini"
-              },
-              {
-                label: "ssrCloud",
-                value:
-                  "https://cdn.jsdelivr.net/gh/SleepyHeeead/subconverter-config@master/remote-config/customized/ssrcloud.ini"
-              }
-            ]
+            ],
           },
           {
-            label: "Special",
+            label: "ACL4SSR",
             options: [
               {
-                label: "NeteaseUnblock(仅规则，No-Urltest)",
+                label: "ACL4SSR",
                 value:
-                  "https://cdn.jsdelivr.net/gh/SleepyHeeead/subconverter-config@master/remote-config/special/netease.ini"
+                  "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/config/ACL4SSR_Online.ini"
               },
               {
-                label: "Basic(仅GEOIP CN + Final)",
+                label: "ACL4SSR AdblockPlus",
                 value:
-                  "https://cdn.jsdelivr.net/gh/SleepyHeeead/subconverter-config@master/remote-config/special/basic.ini"
-              }
+                  "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/config/ACL4SSR_Online_AdblockPlus.ini"
+              },
+              {
+                label: "ACL4SSR Full",
+                value:
+                  "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/config/ACL4SSR_Online_Full.ini"
+              },
+              {
+                label: "ACL4SSR Full AdblockPlus",
+                value:
+                  "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/config/ACL4SSR_Online_Full_AdblockPlus.ini"
+              },
+              {
+                label: "ACL4SSR Mini",
+                value:
+                  "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/config/ACL4SSR_Online_Mini.ini"
+              },
+              {
+                label: "ACL4SSR Mini AdblockPlus",
+                value:
+                  "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/config/ACL4SSR_Online_Mini_AdblockPlus.ini"
+              },
             ]
           }
         ]
@@ -301,7 +286,7 @@ export default {
         nodeList: false,
         extraset: false,
         sort: false,
-        udp: false,
+        udp: true,
         tfo: false,
         scv: true,
         fdn: false,
