@@ -252,6 +252,11 @@ export default {
                 value:
                   "https://gist.githubusercontent.com/NagaseYami/809bb13efc0e9bde2e02d66e86665bf4/raw/ShigureT.ini",
               },
+              {
+                label: "ACL4SSR Full Fork",
+                value:
+                  "https://gist.githubusercontent.com/NagaseYami/809bb13efc0e9bde2e02d66e86665bf4/raw/ACL4SSR_Full_Fork.ini",
+              },
             ],
           },
           {
